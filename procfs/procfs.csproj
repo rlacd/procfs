@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{235D238B-3C54-4F3C-9165-55CAE90E0A34}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>procfs</RootNamespace>
+    <AssemblyName>procfs</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DokanNet\BufferPool.cs" />
+    <Compile Include="DokanNet\Dokan.cs" />
+    <Compile Include="DokanNet\DokanException.cs" />
+    <Compile Include="DokanNet\DokanFileInfo.cs" />
+    <Compile Include="DokanNet\DokanHelper.cs" />
+    <Compile Include="DokanNet\DokanOperationProxy.cs" />
+    <Compile Include="DokanNet\DokanOptions.cs" />
+    <Compile Include="DokanNet\DokanResult.cs" />
+    <Compile Include="DokanNet\DokanStatus.cs" />
+    <Compile Include="DokanNet\FileAccess.cs" />
+    <Compile Include="DokanNet\FileInformation.cs" />
+    <Compile Include="DokanNet\FileSystemFeatures.cs" />
+    <Compile Include="DokanNet\IDokanOperations.cs" />
+    <Compile Include="DokanNet\IDokanOperationsUnsafe.cs" />
+    <Compile Include="DokanNet\Logging\ConsoleLogger.cs" />
+    <Compile Include="DokanNet\Logging\DebugViewLogger.cs" />
+    <Compile Include="DokanNet\Logging\ILogger.cs" />
+    <Compile Include="DokanNet\Logging\Logger.cs" />
+    <Compile Include="DokanNet\Logging\LoggerExtensions.cs" />
+    <Compile Include="DokanNet\Logging\NullLogger.cs" />
+    <Compile Include="DokanNet\Logging\TraceLogger.cs" />
+    <Compile Include="DokanNet\Native\BY_HANDLE_FILE_INFORMATION.cs" />
+    <Compile Include="DokanNet\Native\DOKAN_OPERATIONS.cs" />
+    <Compile Include="DokanNet\Native\DOKAN_OPTIONS.cs" />
+    <Compile Include="DokanNet\Native\NativeMethods.cs" />
+    <Compile Include="DokanNet\Native\SECURITY_INFORMATION.cs" />
+    <Compile Include="DokanNet\Native\WIN32_FIND_DATA.cs" />
+    <Compile Include="DokanNet\Native\WIN32_FIND_STREAM_DATA.cs" />
+    <Compile Include="DokanNet\NtStatus.cs" />
+    <Compile Include="DokanNet\NullFormatProvider.cs" />
+    <Compile Include="DokanNet\Properties\IntrospectionExtensions.cs" />
+    <Compile Include="DokanNet\Properties\Resources.Designer.cs" />
+    <Compile Include="ProcFS.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DokanNet\documentations\Doxyfile" />
+    <None Include="DokanNet\documentations\mainpage.md" />
+    <None Include="DokanNet\Dokan.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DokanNet\documentations\resources\customdoxygen.css" />
+    <Content Include="DokanNet\documentations\resources\doxy-boot.js" />
+    <Content Include="DokanNet\documentations\resources\footer.html" />
+    <Content Include="DokanNet\documentations\resources\header.html" />
+    <Content Include="DokanNet\DokanNet.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DokanNet\Properties\Resources.de.resx" />
+    <EmbeddedResource Include="DokanNet\Properties\Resources.fr.resx" />
+    <EmbeddedResource Include="DokanNet\Properties\Resources.resx" />
+    <EmbeddedResource Include="DokanNet\Properties\Resources.sv.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
